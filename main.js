@@ -11,13 +11,8 @@
   buttons.forEach(pSelection => {
     pSelection.addEventListener('click', () => {
       playerSelection = pSelection.id;
-      return playerSelection;
-      console.log(playerSelection);
-      // return playerSelection.id;
-      // computerSelection();
-
-      return computerSelection();
-      playRound();
+      
+      playRound(playerSelection, computerSelection());
     });
   });
   
@@ -33,45 +28,62 @@
     }
   }
 
-  function playRound(playerSelection, computerSelection) {
-    const result = document.querySelector('.result');
-    const points = document.querySelector('.points');
+  const selection = document.querySelector('.selection');
+  const result = document.querySelector('.result');
+  const points = document.querySelector('.points');
 
-    console.log(`Player selected ${playerSelection}, Computer selected ${computerSelection}`);
+  function playRound(playerSelection, computerSelection) {
+
+    selection.textContent = `Player selected ${playerSelection}, Computer selected ${computerSelection}`;
 
     if (playerSelection == computerSelection) {
       result.textContent = 'Draw';
-      console.log('Draw');
     } else {
       if 
       ((playerSelection == "rock" && computerSelection == "scissors") || 
        (playerSelection == "paper" && computerSelection == "rock") ||
        (playerSelection == "scissors" && computerSelection == "paper")) {
         result.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
-        return playerPoint++;
+        playerPoint++;
       } else if 
       ((playerSelection == "rock" && computerSelection == "paper") ||
       (playerSelection == "paper" && computerSelection == "scissors") ||
       (playerSelection == "scissors" && computerSelection== "rock")) {
         result.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        return computerPoint++;
+        computerPoint++;
       }       
 
-      points.textContent = `Player Points: ${playerPoint}\nComputer Points: ${computerPoint}`;
     } 
-
-    roundNumber ++;
+    countPoints();
+    finalResult();
   }
 
-  // function game() {
-  //   playRound();
+  function countPoints() {
+    const points = document.querySelector('.points');
+    points.textContent = `Player Points: ${playerPoint} ComputerPoints: ${computerPoint}`;
+  }
 
-  //   console.log(`Player Point: ${playerPoint}`);
-  //   console.log(`Computer Point: ${computerPoint}`);
-    
-  // }
+  function finalResult() {
 
-  // game();
+    if (playerPoint == 5 || computerPoint == 5) {
+      const playerSelections = document.querySelector('.playerSelections');
+      playerSelections.classList.add('hide');
+      selection.classList.add('hide');
+      points.classList.add('hide');
+      
+      
+      if (playerPoint > computerPoint) {
+        result.textContent = `You Win!`;
+      } else {
+        result.textContent = 'Computer Wins!';
+      }
+      result.appendChild(finalResult);
+    }
+  }
  
+  const reset = document.querySelector('.reset');
+  const button = document.createElement('button');
+  // resetbutton.onclick = "refresh";
+  reset.appendChild('button');
 
 }

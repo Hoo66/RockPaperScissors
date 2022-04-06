@@ -7,16 +7,22 @@
   <title>Project | Rock Paper Scissors</title>
 </head> 
 <body>
-  <div class="round"></div>
-  <div id="rock" class="playerSelection">Rock</div>
-  <div id="paper" class="playerSelection">Paper</div>
-  <div id="scissors" class="playerSelection">Scissors</div>
-  <div>
-    <p>Results</p>
+  <main>
+    <div class="playerSelections">
+      <div class="round"></div>
+      <div id="rock" class="playerSelection">Rock</div>
+      <div id="paper" class="playerSelection">Paper</div>
+      <div id="scissors" class="playerSelection">Scissors</div>
+    </div>
+    <div class="results">
+      Results
+      <p class="selection"></p>
+      <p class="result"></p>
+      <p class="points">Player Point: 0 <br>Computer Point: 0</p>
+    </div>
 
-    <p class="result"></p>
-    <p class="points"></p>
-  </div>
+    <p class="reset"></p>
+  </main>
 
   <style>
     div:hover {
@@ -37,6 +43,10 @@
       width: 100px;
       height: 100px;
       background-color: rgb(81, 81, 171);
+    }
+
+    .hide {
+      display: none;
     }
   </style>
   <script src="main.js">
