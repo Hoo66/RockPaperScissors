@@ -1,0 +1,66 @@
+body {
+  font-family: 'Mulish', sans-serif;
+  text-align: center;
+  user-select: none;
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main h1 {
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.playerSelection {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 200px;
+  font-size: 24px;
+  color: #fff;
+  box-shadow: 0 10px #aaa;
+}
+.playerSelection:active {
+  box-shadow: none;
+  position: relative;
+  top: 10px;
+}
+#rock {
+  background-color: rgb(211, 54, 54);
+}
+#paper {
+  background-color: rgb(52, 172, 52);
+}
+#scissors {
+  background-color: rgb(81, 81, 171);
+}
+.playerSelection:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+main h2 {
+  margin-top: 60px;
+  font-size: 40px;
+  text-align: center;
+}
+.points {
+text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.playerSelections {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
